@@ -1,8 +1,9 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+    <link rel="stylesheet" href="styles.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>グラフを使った可視化アプリの例</title>
+    <title>都道府県別！温泉の諸データ可視化アプリ！！</title>
     <meta charset="UTF-8">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -18,24 +19,27 @@
        // $(document).ready(function() { sgvizler.containerDrawAll(); });
   </script></head>
   <body>
-        <select id="query" class="form-control">
-                <option>-選択してください-</option>
-                <option value="管轄保健所数">管轄保健所数</option>
-                <option value="市町村数">市町村数</option>
-                <option value="温泉地数">温泉地数</option>
-                <option value="源泉総数A+B">源泉総数A+B</option>
-                <option value="利用源泉数(A)">利用源泉数(A)</option>
-                <option value="未利用源泉数(B)">未利用源泉数(B)</option>
-                <option value="湧出量">湧出量</option>
-                <option value="宿泊施設数">宿泊施設数</option>
-                <option value="収容定員">収容定員</option>
-                <option value="年度延宿泊利用人員">年度延宿泊利用人員</option>
-                <option value="温泉利用の公衆浴場数">温泉利用の公衆浴場数</option>
-                <option value="国民保養温泉地年度延宿泊利用人員">国民保養温泉地年度延宿泊利用人員</option>
-                
-        </select>
-    <h1>グラフを使った可視化アプリ</h1>
-    <h2>コメディアンの輩出数が少ない順に都道府県を並べ替えたものを表示</h2>
+        
+    <h1>都道府県別！温泉の諸データ可視化アプリ！！</h1>
+    <h2>以下の選択肢の中から気になるデータを選択しよう！</h2>
+        
+    <select id="query" class="form-control">
+        <option>-選択してください-</option>
+        <option value="管轄保健所数">管轄保健所数</option>
+        <option value="市町村数">市町村数</option>
+        <option value="温泉地数">温泉地数</option>
+        <option value="源泉総数A+B">源泉総数A+B</option>
+        <option value="利用源泉数(A)">利用源泉数(A)</option>
+        <option value="未利用源泉数(B)">未利用源泉数(B)</option>
+        <option value="湧出量">湧出量</option>
+        <option value="宿泊施設数">宿泊施設数</option>
+        <option value="収容定員">収容定員</option>
+        <option value="年度延宿泊利用人員">年度延宿泊利用人員</option>
+        <option value="温泉利用の公衆浴場数">温泉利用の公衆浴場数</option>
+        <option value="国民保養温泉地年度延宿泊利用人員">国民保養温泉地年度延宿泊利用人員</option>
+        
+</select>
+    
     <h3>■棒グラフ</h3>
     <div id="sgvzl_example_query"
 	 data-sgvizler-endpoint="https://fuseki.open.coins.tsukuba.ac.jp/lod/"
@@ -61,7 +65,7 @@ LIMIT 50"
 
 			
 			
-			 <script src="script.js">
+			
 
 
 			 </script>
