@@ -1,3 +1,30 @@
+var tmp = 0;
+$(document).ready(function() {
+  // Selectタグの変化
+  $("select").change(function() {
+    if (this.value !== "-選択してください-") {
+      if (this.value === "棒グラフ")
+            {
+              document.getElementById("sgvzl_example_query").setAttribute("data-sgvizler-chart","google.visualization.ColumnChart");
+            }
+            else if (this.value === "円グラフ")
+            {
+              document.getElementById("sgvzl_example_query").setAttribute("data-sgvizler-chart","google.visualization.PieChart");
+            }
+            else if (this.value === "線グラフ")
+          {
+            document.getElementById("sgvzl_example_query").setAttribute("data-sgvizler-chart","google.visualization.BarChart");
+          }
+          if(tmp <= 2)
+            {
+              tmp++;
+            }
+      
+    }
+  });
+});
+
+
 $(document).ready(function() {
         // Selectタグの変化
         $("select").change(function() {
@@ -63,7 +90,16 @@ $(document).ready(function() {
               document.getElementById("sgvzl_example_query").setAttribute("data-sgvizler-query","select distinct ?都道府県 ?数 where { ?s <http://linkdata.org/property/rdf1s9417i#%E5%9B%BD%E6%B0%91%E4%BF%9D%E9%A4%8A%E6%B8%A9%E6%B3%89%E5%9C%B0%E5%B9%B4%E5%BA%A6%E5%BB%B6%E5%AE%BF%E6%B3%8A%E5%88%A9%E7%94%A8%E4%BA%BA%E5%93%A1> ?数 . ?s <http://www.w3.org/2000/01/rdf-schema#label> ?都道府県 .} LIMIT 50");
               document.getElementById("sgvzl_example_table").setAttribute("data-sgvizler-query","select distinct ?都道府県 ?数 where { ?s <http://linkdata.org/property/rdf1s9417i#%E5%9B%BD%E6%B0%91%E4%BF%9D%E9%A4%8A%E6%B8%A9%E6%B3%89%E5%9C%B0%E5%B9%B4%E5%BA%A6%E5%BB%B6%E5%AE%BF%E6%B3%8A%E5%88%A9%E7%94%A8%E4%BA%BA%E5%93%A1> ?数 . ?s <http://www.w3.org/2000/01/rdf-schema#label> ?都道府県 .} LIMIT 50");
             }
-            $(document).ready(function() { sgvizler.containerDrawAll(); });
+            if(tmp <= 2)
+            {
+              tmp++;
+            }
+            if ( tmp > 2)
+            {
+              $(document).ready(function() { sgvizler.containerDrawAll(); });
+            }
+            
           }
         });
       });
+

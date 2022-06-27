@@ -21,7 +21,7 @@
   <body>
         
     <h1>都道府県別！温泉の諸データ可視化アプリ！！</h1>
-    <h2>以下の選択肢の中から気になるデータを選択しよう！</h2>
+    <h2>以下の選択肢の中から可視化したいグラフの種類と気になるデータを選択しよう！</h2>
         
     <select id="query" class="form-control">
         <option>-選択してください-</option>
@@ -39,6 +39,14 @@
         <option value="国民保養温泉地年度延宿泊利用人員">国民保養温泉地年度延宿泊利用人員</option>
         
 </select>
+
+<select id="graph" class="form-control">
+        <option>-選択してください-</option>
+        <option value="棒グラフ">棒グラフ</option>
+        <option value="円グラフ">円グラフ</option>
+        <option value="線グラフ">線グラフ</option>
+        
+</select>
     
     <h3>■棒グラフ</h3>
     <div id="sgvzl_example_query"
@@ -46,7 +54,7 @@
 	 data-sgvizler-query="select distinct ?都道府県 ?数 where { ?s <http://linkdata.org/property/rdf1s9417i#%E5%AE%BF%E6%B3%8A%E6%96%BD%E8%A8%AD%E6%95%B0> ?数 . ?s <http://www.w3.org/2000/01/rdf-schema#label> ?都道府県 .} LIMIT 50"
 	 data-sgvizler-chart="google.visualization.ColumnChart"
 	 data-sgvizler-loglevel="2"
-	 data-sgvizler-chart-options="is3D=false"
+	 data-sgvizler-chart-options="is3D=True"
 	 style="width:1500px; height:1000px;"></div>
 
 

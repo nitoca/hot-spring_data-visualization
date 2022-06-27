@@ -1,1 +1,3 @@
-# hot-spring_data-visualization
+# hot-spring_data-visualization  
+オープンデータからデータを持ってきて可視化するアプリ．  
+選択肢を変えるたびにクエリを変更してその都度LODにアクセスしデータを引いている．
