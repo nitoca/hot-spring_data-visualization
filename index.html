@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>グラフを使った可視化アプリの例</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="http://mgskjaeveland.github.io/sgvizler/v/0.6/sgvizler.js"></script>
+    <script src="script/script.js"></script>
+    <script type="text/javascript">
+      // Prefix の設定
+      sgvizler.prefix('dbpedia-owl', 'http://dbpedia.org/ontology/');
+      sgvizler.prefix('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#');
+	  sgvizler.prefix('res', 'http://ja.dbpedia.org/resource/');
+	  sgvizler.prefix('ctg', 'http://ja.dbpedia.org/resource/Category:');
+      // HTMLファイルをロードしたら画面描画
+       // $(document).ready(function() { sgvizler.containerDrawAll(); });
+  </script></head>
+  <body>
+        <select id="query" class="form-control">
+                <option>-選択してください-</option>
+                <option value="管轄保健所数">管轄保健所数</option>
+                <option value="市町村数">市町村数</option>
+                <option value="温泉地数">温泉地数</option>
+                <option value="源泉総数A+B">源泉総数A+B</option>
+                <option value="利用源泉数(A)">利用源泉数(A)</option>
+                <option value="未利用源泉数(B)">未利用源泉数(B)</option>
+                <option value="湧出量">湧出量</option>
+                <option value="宿泊施設数">宿泊施設数</option>
+                <option value="収容定員">収容定員</option>
+                <option value="年度延宿泊利用人員">年度延宿泊利用人員</option>
+                <option value="温泉利用の公衆浴場数">温泉利用の公衆浴場数</option>
+                <option value="国民保養温泉地年度延宿泊利用人員">国民保養温泉地年度延宿泊利用人員</option>
+                
+        </select>
+    <h1>グラフを使った可視化アプリ</h1>
+    <h2>コメディアンの輩出数が少ない順に都道府県を並べ替えたものを表示</h2>
+    <h3>■棒グラフ</h3>
+    <div id="sgvzl_example_query"
+	 data-sgvizler-endpoint="https://fuseki.open.coins.tsukuba.ac.jp/lod/"
+	 data-sgvizler-query="select distinct ?都道府県 ?数 where { ?s <http://linkdata.org/property/rdf1s9417i#%E5%AE%BF%E6%B3%8A%E6%96%BD%E8%A8%AD%E6%95%B0> ?数 . ?s <http://www.w3.org/2000/01/rdf-schema#label> ?都道府県 .} LIMIT 50"
+	 data-sgvizler-chart="google.visualization.ColumnChart"
+	 data-sgvizler-loglevel="2"
+	 data-sgvizler-chart-options="is3D=false"
+	 style="width:1500px; height:1000px;"></div>
+
+
+
+    <h3>■テーブル</h3>
+    <div id="sgvzl_example_table"
+	 data-sgvizler-endpoint="https://fuseki.open.coins.tsukuba.ac.jp/lod/"
+	 data-sgvizler-query="
+	 select distinct ?都道府県 ?数 where {
+		?s <http://linkdata.org/property/rdf1s9417i#%E5%AE%BF%E6%B3%8A%E6%96%BD%E8%A8%AD%E6%95%B0> ?数 .
+                ?s <http://www.w3.org/2000/01/rdf-schema#label> ?都道府県 .
+	  }
+LIMIT 50"
+		     data-sgvizler-chart="google.visualization.Table"
+		     data-sgvizler-loglevel="2" style="width:1000px; height:1000px;"></div>
+
+			
+			
+			 <script src="script.js">
+
+
+			 </script>
+
+	      </body>
+	    </html>
